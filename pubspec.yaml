@@ -10,12 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
   go_router:
-  flutter_riverpod:
-  hooks_riverpod:
+  flutter_riverpod: ^3.2.1
+  hooks_riverpod: ^3.3.1
   freezed_annotation:
   json_annotation:
   intl:
   dio:
+  flutter_dotenv:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +29,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - .env

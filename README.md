@@ -1,3 +1,3 @@
-# mobile_probeaufgabe_lucas_schmidt
+# Mobile Probeaufgabe Lucas Schmidt
 
 A new Flutter project.
