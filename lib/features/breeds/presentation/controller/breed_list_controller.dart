@@ -7,7 +7,7 @@ import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.d
 class BreedListController extends AsyncNotifier<List<Breed>> {
   @override
   Future<List<Breed>> build() {
-    final repo = ref.watch(breedRepositoryRemoteProvider);
+    final repo = ref.read(breedRepositoryRemoteProvider);
     return repo.getBreeds();
   }
 }

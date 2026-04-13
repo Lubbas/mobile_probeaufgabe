@@ -1,7 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
-import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/shared/services/api_client_service.dart';
 
 class BreedRepositoryRemote implements BreedRepository {
@@ -18,7 +17,10 @@ class BreedRepositoryRemote implements BreedRepository {
 
   @override
   Future<Breed> getBreed(String id) async {
+    // fetches breed from api
     final breedData = await apiClient.getBreed(id);
+
+    // if breed has no image, fetches image from api with reference id
     if (breedData.image == null) {
       if (breedData.referenceImageId != null) {
         final imageData = await apiClient.getBreedImage(
@@ -29,9 +31,6 @@ class BreedRepositoryRemote implements BreedRepository {
     }
     return breedData;
   }
-
-  @override
-  Future<BreedImage> getBreedImage(String id) => apiClient.getBreedImage(id);
 }
 
 final breedRepositoryRemoteProvider = Provider<BreedRepository>(

@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/controller/breed_details_controller.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/breed_attribute_indicator.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/image_placeholder.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/info_container.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/extensions/context_extension.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/extensions/string_extension.dart';
@@ -23,14 +24,16 @@ class BreedDetailScreen extends HookConsumerWidget {
             pinned: true,
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
-              stretchModes: [StretchMode.zoomBackground],
+              stretchModes: [.zoomBackground],
               collapseMode: .pin,
-              background: state.maybeWhen(
-                data: (data) => data.image?.url.isUseable ?? false
-                    ? Image.network(data.image!.url!, fit: .cover)
-                    : null,
-                orElse: () => null,
-              ),
+              background: state.value?.image?.url?.isUseable ?? false
+                  ? Image.network(
+                      state.value!.image!.url!,
+                      fit: .cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          ImagePlaceholder(),
+                    )
+                  : ImagePlaceholder(),
             ),
           ),
           state.when(
@@ -60,7 +63,6 @@ class BreedDetailScreen extends HookConsumerWidget {
                                 Text(
                                   data.temperament.orPlaceholder(),
                                   style: context.textTheme.labelLarge?.copyWith(
-                                    // fontStyle: FontStyle.italic,
                                     color: context.colorScheme.outline,
                                   ),
                                 ),
@@ -91,6 +93,7 @@ class BreedDetailScreen extends HookConsumerWidget {
                         children: [
                           Expanded(
                             child: FilledButton.tonalIcon(
+                              key: const ValueKey("wikipedia_button"),
                               onPressed: data.wikipediaUrl != null
                                   ? () async {
                                       launchUrlString(data.wikipediaUrl!);

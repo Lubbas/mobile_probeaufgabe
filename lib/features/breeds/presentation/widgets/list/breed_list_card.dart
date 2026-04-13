@@ -13,10 +13,17 @@ class BreedListCard extends StatelessWidget {
     return ListTile(
       onTap: () => context.go("${AppPaths.breeds}/${breed.id}"),
       leading: CircleAvatar(
-        backgroundImage: breed.image?.url != null
-            ? NetworkImage(breed.image!.url!)
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(image: Image.network().)
+        // ),
+        backgroundImage: breed.image?.url.isUseable ?? false
+            ? Image.network(
+                breed.image!.url!,
+                errorBuilder: (context, error, stackTrace) =>
+                    Icon(Icons.pets_outlined),
+              ).image
             : null,
-        radius: 24,
+        child: breed.image?.url.isUseable ?? false ? null : Icon(Icons.pets),
       ),
       title: Text(
         breed.name.orPlaceholder(),

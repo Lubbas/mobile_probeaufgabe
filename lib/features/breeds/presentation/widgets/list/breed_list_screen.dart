@@ -11,20 +11,14 @@ class BreedListScreen extends HookConsumerWidget {
     final state = ref.watch(breedListControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Rassen"),
-        // bottom: PreferredSize(
-        //   preferredSize: Size.fromHeight(1),
-        //   child: const Divider(height: 1),
-        // ),
-      ),
+      appBar: AppBar(title: const Text("Rassen")),
       body: state.when(
         data: (data) => ListView.separated(
           separatorBuilder: (context, index) => const Divider(height: 1),
           itemCount: data.length,
           itemBuilder: (context, index) => BreedListCard(breed: data[index]),
         ),
-        error: (error, stackTrace) => Text(error.toString()),
+        error: (error, stackTrace) => Center(child: Text(error.toString())),
         loading: () => Center(child: CircularProgressIndicator()),
       ),
     );

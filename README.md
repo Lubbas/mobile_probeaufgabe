@@ -1,3 +1,7 @@
 # Mobile Probeaufgabe Lucas Schmidt
 
-A new Flutter project.
+## Setup
+
+## Aufgabe 2
+
+### Vote-Funktionalität
