@@ -53,7 +53,7 @@ void main() {
       await widgetTester.pumpAndSettle();
       expect(
         widgetTester
-            .widget<FilledButton>(
+            .widget<OutlinedButton>(
               find.byKey(const ValueKey("wikipedia_button")),
             )
             .enabled,

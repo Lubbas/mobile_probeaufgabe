@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/cat_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/weight.dart';
 
 part 'breed.freezed.dart';
@@ -45,7 +45,7 @@ sealed class Breed with _$Breed {
     @JsonKey(name: "wikipedia_url") final String? wikipediaUrl,
     final int? hypoallergenic,
     @JsonKey(name: "reference_image_id") final String? referenceImageId,
-    final BreedImage? image,
+    final CatImage? image,
   }) = _Breed;
 
   factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);

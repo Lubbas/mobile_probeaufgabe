@@ -16,6 +16,7 @@ class VotingContainer extends HookConsumerWidget {
       child: SegmentedButton(
         style: SegmentedButton.styleFrom(
           side: BorderSide(color: context.colorScheme.outlineVariant),
+          selectedBackgroundColor: context.colorScheme.primaryContainer,
         ),
         emptySelectionAllowed: true,
         selected: state.maybeWhen(

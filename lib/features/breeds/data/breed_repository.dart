@@ -1,4 +1,5 @@
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/cat_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 
 abstract class BreedRepository {
@@ -13,4 +14,7 @@ abstract class BreedRepository {
 
   /// Get the [Vote] for a given [CatImage] by its ID
   Future<Vote?> getCatImageVote({required String imageId, String? subId});
+
+  /// Get the [CatImage]s for a given [Breed] by its ID
+  Future<List<CatImage>> searchImages(String breedId);
 }

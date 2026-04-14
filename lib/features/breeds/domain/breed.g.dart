@@ -48,7 +48,7 @@ _Breed _$BreedFromJson(Map<String, dynamic> json) => _Breed(
   referenceImageId: json['reference_image_id'] as String?,
   image: json['image'] == null
       ? null
-      : BreedImage.fromJson(json['image'] as Map<String, dynamic>),
+      : CatImage.fromJson(json['image'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$BreedToJson(_Breed instance) => <String, dynamic>{

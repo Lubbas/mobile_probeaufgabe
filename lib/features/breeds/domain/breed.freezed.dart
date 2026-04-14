@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Breed {
 
- Weight? get weight; String? get id; String? get name;@JsonKey(name: "cfa_url") String? get cfaUrl;@JsonKey(name: "vetstreet_url") String? get vetstreetUrl;@JsonKey(name: "vcahospitals_url") String? get vcahospitalsUrl; String? get temperament; String? get origin;@JsonKey(name: "country_codes") String? get countryCodes;@JsonKey(name: "country_code") String? get countryCode; String? get description;@JsonKey(name: "life_span") String? get lifeSpan; int? get indoor; int? get lap;@JsonKey(name: "alt_names") String? get altNames; int? get adaptability;@JsonKey(name: "affection_level") int? get affectionLevel;@JsonKey(name: "child_friendly") int? get childFriendly;@JsonKey(name: "dog_friendly") int? get dogFriendly;@JsonKey(name: "energy_level") int? get energyLevel; int? get grooming;@JsonKey(name: "health_issues") int? get healthIssues; int? get intelligence;@JsonKey(name: "shedding_level") int? get sheddingLevel;@JsonKey(name: "social_needs") int? get socialNeeds;@JsonKey(name: "stranger_friendly") int? get strangerFriendly; int? get vocalisation; int? get experimental; int? get hairless; int? get natural; int? get rare; int? get rex;@JsonKey(name: "suppressed_tail") int? get suppressedTail;@JsonKey(name: "short_legs") int? get shortLegs;@JsonKey(name: "wikipedia_url") String? get wikipediaUrl; int? get hypoallergenic;@JsonKey(name: "reference_image_id") String? get referenceImageId; BreedImage? get image;
+ Weight? get weight; String? get id; String? get name;@JsonKey(name: "cfa_url") String? get cfaUrl;@JsonKey(name: "vetstreet_url") String? get vetstreetUrl;@JsonKey(name: "vcahospitals_url") String? get vcahospitalsUrl; String? get temperament; String? get origin;@JsonKey(name: "country_codes") String? get countryCodes;@JsonKey(name: "country_code") String? get countryCode; String? get description;@JsonKey(name: "life_span") String? get lifeSpan; int? get indoor; int? get lap;@JsonKey(name: "alt_names") String? get altNames; int? get adaptability;@JsonKey(name: "affection_level") int? get affectionLevel;@JsonKey(name: "child_friendly") int? get childFriendly;@JsonKey(name: "dog_friendly") int? get dogFriendly;@JsonKey(name: "energy_level") int? get energyLevel; int? get grooming;@JsonKey(name: "health_issues") int? get healthIssues; int? get intelligence;@JsonKey(name: "shedding_level") int? get sheddingLevel;@JsonKey(name: "social_needs") int? get socialNeeds;@JsonKey(name: "stranger_friendly") int? get strangerFriendly; int? get vocalisation; int? get experimental; int? get hairless; int? get natural; int? get rare; int? get rex;@JsonKey(name: "suppressed_tail") int? get suppressedTail;@JsonKey(name: "short_legs") int? get shortLegs;@JsonKey(name: "wikipedia_url") String? get wikipediaUrl; int? get hypoallergenic;@JsonKey(name: "reference_image_id") String? get referenceImageId; CatImage? get image;
 /// Create a copy of Breed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $BreedCopyWith<$Res>  {
   factory $BreedCopyWith(Breed value, $Res Function(Breed) _then) = _$BreedCopyWithImpl;
 @useResult
 $Res call({
- Weight? weight, String? id, String? name,@JsonKey(name: "cfa_url") String? cfaUrl,@JsonKey(name: "vetstreet_url") String? vetstreetUrl,@JsonKey(name: "vcahospitals_url") String? vcahospitalsUrl, String? temperament, String? origin,@JsonKey(name: "country_codes") String? countryCodes,@JsonKey(name: "country_code") String? countryCode, String? description,@JsonKey(name: "life_span") String? lifeSpan, int? indoor, int? lap,@JsonKey(name: "alt_names") String? altNames, int? adaptability,@JsonKey(name: "affection_level") int? affectionLevel,@JsonKey(name: "child_friendly") int? childFriendly,@JsonKey(name: "dog_friendly") int? dogFriendly,@JsonKey(name: "energy_level") int? energyLevel, int? grooming,@JsonKey(name: "health_issues") int? healthIssues, int? intelligence,@JsonKey(name: "shedding_level") int? sheddingLevel,@JsonKey(name: "social_needs") int? socialNeeds,@JsonKey(name: "stranger_friendly") int? strangerFriendly, int? vocalisation, int? experimental, int? hairless, int? natural, int? rare, int? rex,@JsonKey(name: "suppressed_tail") int? suppressedTail,@JsonKey(name: "short_legs") int? shortLegs,@JsonKey(name: "wikipedia_url") String? wikipediaUrl, int? hypoallergenic,@JsonKey(name: "reference_image_id") String? referenceImageId, BreedImage? image
+ Weight? weight, String? id, String? name,@JsonKey(name: "cfa_url") String? cfaUrl,@JsonKey(name: "vetstreet_url") String? vetstreetUrl,@JsonKey(name: "vcahospitals_url") String? vcahospitalsUrl, String? temperament, String? origin,@JsonKey(name: "country_codes") String? countryCodes,@JsonKey(name: "country_code") String? countryCode, String? description,@JsonKey(name: "life_span") String? lifeSpan, int? indoor, int? lap,@JsonKey(name: "alt_names") String? altNames, int? adaptability,@JsonKey(name: "affection_level") int? affectionLevel,@JsonKey(name: "child_friendly") int? childFriendly,@JsonKey(name: "dog_friendly") int? dogFriendly,@JsonKey(name: "energy_level") int? energyLevel, int? grooming,@JsonKey(name: "health_issues") int? healthIssues, int? intelligence,@JsonKey(name: "shedding_level") int? sheddingLevel,@JsonKey(name: "social_needs") int? socialNeeds,@JsonKey(name: "stranger_friendly") int? strangerFriendly, int? vocalisation, int? experimental, int? hairless, int? natural, int? rare, int? rex,@JsonKey(name: "suppressed_tail") int? suppressedTail,@JsonKey(name: "short_legs") int? shortLegs,@JsonKey(name: "wikipedia_url") String? wikipediaUrl, int? hypoallergenic,@JsonKey(name: "reference_image_id") String? referenceImageId, CatImage? image
 });
 
 
-$WeightCopyWith<$Res>? get weight;$BreedImageCopyWith<$Res>? get image;
+$WeightCopyWith<$Res>? get weight;$CatImageCopyWith<$Res>? get image;
 
 }
 /// @nodoc
@@ -105,7 +105,7 @@ as int?,wikipediaUrl: freezed == wikipediaUrl ? _self.wikipediaUrl : wikipediaUr
 as String?,hypoallergenic: freezed == hypoallergenic ? _self.hypoallergenic : hypoallergenic // ignore: cast_nullable_to_non_nullable
 as int?,referenceImageId: freezed == referenceImageId ? _self.referenceImageId : referenceImageId // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
-as BreedImage?,
+as CatImage?,
   ));
 }
 /// Create a copy of Breed
@@ -124,12 +124,12 @@ $WeightCopyWith<$Res>? get weight {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BreedImageCopyWith<$Res>? get image {
+$CatImageCopyWith<$Res>? get image {
     if (_self.image == null) {
     return null;
   }
 
-  return $BreedImageCopyWith<$Res>(_self.image!, (value) {
+  return $CatImageCopyWith<$Res>(_self.image!, (value) {
     return _then(_self.copyWith(image: value));
   });
 }
@@ -211,7 +211,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  BreedImage? image)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  CatImage? image)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Breed() when $default != null:
 return $default(_that.weight,_that.id,_that.name,_that.cfaUrl,_that.vetstreetUrl,_that.vcahospitalsUrl,_that.temperament,_that.origin,_that.countryCodes,_that.countryCode,_that.description,_that.lifeSpan,_that.indoor,_that.lap,_that.altNames,_that.adaptability,_that.affectionLevel,_that.childFriendly,_that.dogFriendly,_that.energyLevel,_that.grooming,_that.healthIssues,_that.intelligence,_that.sheddingLevel,_that.socialNeeds,_that.strangerFriendly,_that.vocalisation,_that.experimental,_that.hairless,_that.natural,_that.rare,_that.rex,_that.suppressedTail,_that.shortLegs,_that.wikipediaUrl,_that.hypoallergenic,_that.referenceImageId,_that.image);case _:
@@ -232,7 +232,7 @@ return $default(_that.weight,_that.id,_that.name,_that.cfaUrl,_that.vetstreetUrl
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  BreedImage? image)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  CatImage? image)  $default,) {final _that = this;
 switch (_that) {
 case _Breed():
 return $default(_that.weight,_that.id,_that.name,_that.cfaUrl,_that.vetstreetUrl,_that.vcahospitalsUrl,_that.temperament,_that.origin,_that.countryCodes,_that.countryCode,_that.description,_that.lifeSpan,_that.indoor,_that.lap,_that.altNames,_that.adaptability,_that.affectionLevel,_that.childFriendly,_that.dogFriendly,_that.energyLevel,_that.grooming,_that.healthIssues,_that.intelligence,_that.sheddingLevel,_that.socialNeeds,_that.strangerFriendly,_that.vocalisation,_that.experimental,_that.hairless,_that.natural,_that.rare,_that.rex,_that.suppressedTail,_that.shortLegs,_that.wikipediaUrl,_that.hypoallergenic,_that.referenceImageId,_that.image);}
@@ -249,7 +249,7 @@ return $default(_that.weight,_that.id,_that.name,_that.cfaUrl,_that.vetstreetUrl
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  BreedImage? image)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Weight? weight,  String? id,  String? name, @JsonKey(name: "cfa_url")  String? cfaUrl, @JsonKey(name: "vetstreet_url")  String? vetstreetUrl, @JsonKey(name: "vcahospitals_url")  String? vcahospitalsUrl,  String? temperament,  String? origin, @JsonKey(name: "country_codes")  String? countryCodes, @JsonKey(name: "country_code")  String? countryCode,  String? description, @JsonKey(name: "life_span")  String? lifeSpan,  int? indoor,  int? lap, @JsonKey(name: "alt_names")  String? altNames,  int? adaptability, @JsonKey(name: "affection_level")  int? affectionLevel, @JsonKey(name: "child_friendly")  int? childFriendly, @JsonKey(name: "dog_friendly")  int? dogFriendly, @JsonKey(name: "energy_level")  int? energyLevel,  int? grooming, @JsonKey(name: "health_issues")  int? healthIssues,  int? intelligence, @JsonKey(name: "shedding_level")  int? sheddingLevel, @JsonKey(name: "social_needs")  int? socialNeeds, @JsonKey(name: "stranger_friendly")  int? strangerFriendly,  int? vocalisation,  int? experimental,  int? hairless,  int? natural,  int? rare,  int? rex, @JsonKey(name: "suppressed_tail")  int? suppressedTail, @JsonKey(name: "short_legs")  int? shortLegs, @JsonKey(name: "wikipedia_url")  String? wikipediaUrl,  int? hypoallergenic, @JsonKey(name: "reference_image_id")  String? referenceImageId,  CatImage? image)?  $default,) {final _that = this;
 switch (_that) {
 case _Breed() when $default != null:
 return $default(_that.weight,_that.id,_that.name,_that.cfaUrl,_that.vetstreetUrl,_that.vcahospitalsUrl,_that.temperament,_that.origin,_that.countryCodes,_that.countryCode,_that.description,_that.lifeSpan,_that.indoor,_that.lap,_that.altNames,_that.adaptability,_that.affectionLevel,_that.childFriendly,_that.dogFriendly,_that.energyLevel,_that.grooming,_that.healthIssues,_that.intelligence,_that.sheddingLevel,_that.socialNeeds,_that.strangerFriendly,_that.vocalisation,_that.experimental,_that.hairless,_that.natural,_that.rare,_that.rex,_that.suppressedTail,_that.shortLegs,_that.wikipediaUrl,_that.hypoallergenic,_that.referenceImageId,_that.image);case _:
@@ -304,7 +304,7 @@ class _Breed implements Breed {
 @override@JsonKey(name: "wikipedia_url") final  String? wikipediaUrl;
 @override final  int? hypoallergenic;
 @override@JsonKey(name: "reference_image_id") final  String? referenceImageId;
-@override final  BreedImage? image;
+@override final  CatImage? image;
 
 /// Create a copy of Breed
 /// with the given fields replaced by the non-null parameter values.
@@ -339,11 +339,11 @@ abstract mixin class _$BreedCopyWith<$Res> implements $BreedCopyWith<$Res> {
   factory _$BreedCopyWith(_Breed value, $Res Function(_Breed) _then) = __$BreedCopyWithImpl;
 @override @useResult
 $Res call({
- Weight? weight, String? id, String? name,@JsonKey(name: "cfa_url") String? cfaUrl,@JsonKey(name: "vetstreet_url") String? vetstreetUrl,@JsonKey(name: "vcahospitals_url") String? vcahospitalsUrl, String? temperament, String? origin,@JsonKey(name: "country_codes") String? countryCodes,@JsonKey(name: "country_code") String? countryCode, String? description,@JsonKey(name: "life_span") String? lifeSpan, int? indoor, int? lap,@JsonKey(name: "alt_names") String? altNames, int? adaptability,@JsonKey(name: "affection_level") int? affectionLevel,@JsonKey(name: "child_friendly") int? childFriendly,@JsonKey(name: "dog_friendly") int? dogFriendly,@JsonKey(name: "energy_level") int? energyLevel, int? grooming,@JsonKey(name: "health_issues") int? healthIssues, int? intelligence,@JsonKey(name: "shedding_level") int? sheddingLevel,@JsonKey(name: "social_needs") int? socialNeeds,@JsonKey(name: "stranger_friendly") int? strangerFriendly, int? vocalisation, int? experimental, int? hairless, int? natural, int? rare, int? rex,@JsonKey(name: "suppressed_tail") int? suppressedTail,@JsonKey(name: "short_legs") int? shortLegs,@JsonKey(name: "wikipedia_url") String? wikipediaUrl, int? hypoallergenic,@JsonKey(name: "reference_image_id") String? referenceImageId, BreedImage? image
+ Weight? weight, String? id, String? name,@JsonKey(name: "cfa_url") String? cfaUrl,@JsonKey(name: "vetstreet_url") String? vetstreetUrl,@JsonKey(name: "vcahospitals_url") String? vcahospitalsUrl, String? temperament, String? origin,@JsonKey(name: "country_codes") String? countryCodes,@JsonKey(name: "country_code") String? countryCode, String? description,@JsonKey(name: "life_span") String? lifeSpan, int? indoor, int? lap,@JsonKey(name: "alt_names") String? altNames, int? adaptability,@JsonKey(name: "affection_level") int? affectionLevel,@JsonKey(name: "child_friendly") int? childFriendly,@JsonKey(name: "dog_friendly") int? dogFriendly,@JsonKey(name: "energy_level") int? energyLevel, int? grooming,@JsonKey(name: "health_issues") int? healthIssues, int? intelligence,@JsonKey(name: "shedding_level") int? sheddingLevel,@JsonKey(name: "social_needs") int? socialNeeds,@JsonKey(name: "stranger_friendly") int? strangerFriendly, int? vocalisation, int? experimental, int? hairless, int? natural, int? rare, int? rex,@JsonKey(name: "suppressed_tail") int? suppressedTail,@JsonKey(name: "short_legs") int? shortLegs,@JsonKey(name: "wikipedia_url") String? wikipediaUrl, int? hypoallergenic,@JsonKey(name: "reference_image_id") String? referenceImageId, CatImage? image
 });
 
 
-@override $WeightCopyWith<$Res>? get weight;@override $BreedImageCopyWith<$Res>? get image;
+@override $WeightCopyWith<$Res>? get weight;@override $CatImageCopyWith<$Res>? get image;
 
 }
 /// @nodoc
@@ -396,7 +396,7 @@ as int?,wikipediaUrl: freezed == wikipediaUrl ? _self.wikipediaUrl : wikipediaUr
 as String?,hypoallergenic: freezed == hypoallergenic ? _self.hypoallergenic : hypoallergenic // ignore: cast_nullable_to_non_nullable
 as int?,referenceImageId: freezed == referenceImageId ? _self.referenceImageId : referenceImageId // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
-as BreedImage?,
+as CatImage?,
   ));
 }
 
@@ -416,12 +416,12 @@ $WeightCopyWith<$Res>? get weight {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$BreedImageCopyWith<$Res>? get image {
+$CatImageCopyWith<$Res>? get image {
     if (_self.image == null) {
     return null;
   }
 
-  return $BreedImageCopyWith<$Res>(_self.image!, (value) {
+  return $CatImageCopyWith<$Res>(_self.image!, (value) {
     return _then(_self.copyWith(image: value));
   });
 }

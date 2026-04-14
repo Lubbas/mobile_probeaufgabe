@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
-import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/cat_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/interceptor/on_request_interceptor.dart';
 
@@ -31,10 +31,10 @@ class ApiClientService {
     }
   }
 
-  Future<BreedImage> getBreedImage(String id) async {
+  Future<CatImage> getCatImage(String id) async {
     try {
       final response = await _dio.get("/images/$id");
-      return BreedImage.fromJson(response.data);
+      return CatImage.fromJson(response.data);
     } catch (e) {
       throw Exception("Could not image with id $id");
     }
@@ -59,6 +59,25 @@ class ApiClientService {
       return List<Vote>.from(response.data.map((e) => Vote.fromJson(e)));
     } catch (e) {
       throw Exception("Could not get votes for image with id $imageId");
+    }
+  }
+
+  Future<List<CatImage>> getImages({String? breedId}) async {
+    try {
+      final queryParameter = {
+        "include_breeds": 1,
+        "limit": 21,
+        "breed_id": breedId,
+      };
+      final response = await _dio.get(
+        "images/search",
+        queryParameters: queryParameter,
+      );
+      return List<CatImage>.from(
+        response.data.map((e) => CatImage.fromJson(e)),
+      );
+    } catch (e) {
+      throw Exception("Could not get images");
     }
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/core/routing/app_paths.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/controller/breed_details_controller.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/breed_attribute_indicator.dart';
@@ -24,6 +26,7 @@ class BreedDetailScreen extends HookConsumerWidget {
           SliverAppBar(
             pinned: true,
             expandedHeight: 250,
+            backgroundColor: context.colorScheme.surface,
             flexibleSpace: FlexibleSpaceBar(
               stretchModes: [.zoomBackground],
               collapseMode: .pin,
@@ -36,6 +39,15 @@ class BreedDetailScreen extends HookConsumerWidget {
                     )
                   : ImagePlaceholder(),
             ),
+            actionsPadding: .only(right: 12),
+            actions: [
+              IconButton.filledTonal(
+                onPressed: () =>
+                    context.go("${context.location}${AppPaths.imageSearch}"),
+                tooltip: "Bilder-Suche",
+                icon: Icon(Icons.image_search_outlined),
+              ),
+            ],
           ),
           state.when(
             data: (data) => SliverList(
@@ -72,6 +84,7 @@ class BreedDetailScreen extends HookConsumerWidget {
                           ),
                         ],
                       ),
+
                       Row(
                         spacing: 16,
                         children: [
@@ -89,25 +102,31 @@ class BreedDetailScreen extends HookConsumerWidget {
                           ),
                         ],
                       ),
-                      if (data.image?.id != null)
-                        VotingContainer(imageId: data.image!.id!),
                       Text(data.description.orPlaceholder()),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: FilledButton.tonalIcon(
-                              key: const ValueKey("wikipedia_button"),
-                              onPressed: data.wikipediaUrl != null
-                                  ? () async {
-                                      launchUrlString(data.wikipediaUrl!);
-                                    }
-                                  : null,
-                              label: Text("Wikipedia"),
-                              icon: const Icon(Icons.open_in_new_outlined),
-                              iconAlignment: .end,
-                            ),
-                          ),
-                        ],
+                      if (data.image?.id != null)
+                        VotingContainer(
+                          key: const ValueKey("voting_container"),
+                          imageId: data.image!.id!,
+                        ),
+                      SizedBox(
+                        width: .infinity,
+                        child: OutlinedButton.icon(
+                          key: const ValueKey("wikipedia_button"),
+                          onPressed: data.wikipediaUrl != null
+                              ? () async {
+                                  final canLaunch = await canLaunchUrlString(
+                                    data.wikipediaUrl!,
+                                  );
+                                  if (!canLaunch) {
+                                    return;
+                                  }
+                                  launchUrlString(data.wikipediaUrl!);
+                                }
+                              : null,
+                          label: Text("Wikipedia"),
+                          icon: const Icon(Icons.open_in_new_outlined),
+                          iconAlignment: .end,
+                        ),
                       ),
                       Text(
                         "Eigenschaften",
@@ -189,8 +208,9 @@ class BreedDetailScreen extends HookConsumerWidget {
             loading: () => SliverFillRemaining(
               child: Center(child: CircularProgressIndicator()),
             ),
-            error: (error, stackTrace) =>
-                SliverFillRemaining(child: Text(error.toString())),
+            error: (error, stackTrace) => SliverFillRemaining(
+              child: Center(child: Text(error.toString())),
+            ),
           ),
         ],
       ),

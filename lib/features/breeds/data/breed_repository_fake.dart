@@ -1,6 +1,6 @@
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
-import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/cat_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/weight.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/shared/exceptions/not_found_exception.dart';
@@ -40,7 +40,7 @@ class BreedRepositoryFake implements BreedRepository {
 
     if (!hasImage) {
       if (hasReferenceImage && breedData.referenceImageId != null) {
-        final fakeImage = BreedImage(
+        final fakeImage = CatImage(
           id: breedData.referenceImageId!,
           width: 1200,
           height: 800,
@@ -52,6 +52,40 @@ class BreedRepositoryFake implements BreedRepository {
       }
     }
     return breedData;
+  }
+
+  @override
+  Future<bool> voteImage(Vote vote) async {
+    await Future.delayed(delay);
+    if (shouldThrowError) {
+      throw Exception("Fehler beim Voting aufgetreten");
+    }
+    if (vote.value == null) {
+      throw ArgumentError('Vote must not be null');
+    }
+    if (vote.value! > 1 || vote.value! < -1) {
+      throw ArgumentError('Vote must be either 1 (upvote) or -1 (downvote)');
+    }
+
+    return true;
+  }
+
+  @override
+  Future<Vote?> getCatImageVote({
+    required String imageId,
+    String? subId,
+  }) async {
+    await Future.delayed(delay);
+    return votes.where((element) => element.imageId == imageId).lastOrNull;
+  }
+
+  @override
+  Future<List<CatImage>> searchImages(String breedId) async {
+    await Future.delayed(delay);
+    return _breeds
+        .where((element) => element.id == breedId)
+        .map((e) => e.image!)
+        .toList();
   }
 
   /// [_breeds] for testing
@@ -98,7 +132,7 @@ class BreedRepositoryFake implements BreedRepository {
               shortLegs: 0,
               hypoallergenic: 0,
               referenceImageId: "0XYvRd7oD",
-              image: BreedImage(
+              image: CatImage(
                 id: "0XYvRd7oD",
                 width: 1204,
                 height: 1445,
@@ -141,7 +175,7 @@ class BreedRepositoryFake implements BreedRepository {
               wikipediaUrl: "https://en.wikipedia.org/wiki/Aegean_cat",
               hypoallergenic: 0,
               referenceImageId: "ozEvzdVM-",
-              image: BreedImage(
+              image: CatImage(
                 id: "ozEvzdVM-",
                 width: 1200,
                 height: 800,
@@ -157,15 +191,8 @@ class BreedRepositoryFake implements BreedRepository {
           )
           .toList();
 
-  @override
-  Future<bool> voteImage(Vote vote) {
-    // TODO: implement voteImage
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Vote?> getCatImageVote({required String imageId, String? subId}) {
-    // TODO: implement getCatImageVote
-    throw UnimplementedError();
-  }
+  List<Vote> votes = [
+    Vote(imageId: "0XYvRd7oD", value: 1),
+    Vote(imageId: "ozEvzdVM", value: -1),
+  ];
 }

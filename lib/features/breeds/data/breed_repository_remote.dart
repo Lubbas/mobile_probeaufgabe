@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/cat_image.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/shared/services/api_client_service.dart';
 
@@ -24,7 +25,7 @@ class BreedRepositoryRemote implements BreedRepository {
     // if breed has no image, fetches image from api with reference id
     if (breedData.image == null) {
       if (breedData.referenceImageId != null) {
-        final imageData = await apiClient.getBreedImage(
+        final imageData = await apiClient.getCatImage(
           breedData.referenceImageId!,
         );
         return breedData.copyWith(image: imageData);
@@ -55,6 +56,12 @@ class BreedRepositoryRemote implements BreedRepository {
       subId: subId,
     );
     return votes.where((element) => element.imageId == imageId).lastOrNull;
+  }
+
+  @override
+  Future<List<CatImage>> searchImages(String breedId) async {
+    final images = await apiClient.getImages(breedId: breedId);
+    return images;
   }
 }
 
