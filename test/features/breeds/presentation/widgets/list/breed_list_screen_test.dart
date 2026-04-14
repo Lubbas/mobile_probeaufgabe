@@ -9,10 +9,10 @@ import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/w
 void main() {
   group("Breed-List-Tests", () {
     Future<void> setupScreen(
-      WidgetTester tester, {
+      WidgetTester widgetTester, {
       bool shouldThrowError = false,
     }) async {
-      await tester.pumpWidget(
+      await widgetTester.pumpWidget(
         ProviderScope(
           retry: (retryCount, error) => null,
           overrides: [
@@ -30,10 +30,12 @@ void main() {
       );
     }
 
-    testWidgets("Shows loading indicator while loading breeds", (tester) async {
-      await setupScreen(tester);
+    testWidgets("Shows loading indicator while loading breeds", (
+      widgetTester,
+    ) async {
+      await setupScreen(widgetTester);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
-      await tester.pumpAndSettle();
+      await widgetTester.pumpAndSettle();
     });
 
     testWidgets("Shows breed list after loading", (widgetTester) async {

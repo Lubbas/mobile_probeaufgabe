@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository_fake.dart';
@@ -9,19 +12,19 @@ import 'package:mobile_probeaufgabe_lucas_schmidt/shared/exceptions/not_found_ex
 void main() {
   group("Breed-Detail-Tests", () {
     Future<void> setupScreen(
-      WidgetTester tester, {
+      WidgetTester widgetTester, {
       bool shouldThrowError = false,
+      bool hasImage = false,
     }) async {
-      await tester.pumpWidget(
+      await widgetTester.pumpWidget(
         ProviderScope(
           retry: (retryCount, error) => null,
           overrides: [
             breedRepositoryRemoteProvider.overrideWithValue(
               BreedRepositoryFake(
-                hasImage: false,
+                hasImage: hasImage,
                 hasReferenceImage: false,
                 shouldThrowError: shouldThrowError,
-                delay: Duration(milliseconds: 500),
               ),
             ),
           ],
@@ -30,10 +33,12 @@ void main() {
       );
     }
 
-    testWidgets("Show loading indicator while loading breed", (tester) async {
-      await setupScreen(tester);
+    testWidgets("Show loading indicator while loading breed", (
+      widgetTester,
+    ) async {
+      await setupScreen(widgetTester);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
-      await tester.pumpAndSettle();
+      await widgetTester.pumpAndSettle();
     });
 
     testWidgets("Show breed details after loading", (widgetTester) async {
@@ -70,6 +75,24 @@ void main() {
         find.text(BreedNotFoundException("abys").toString()),
         findsOneWidget,
       );
+    });
+    testWidgets(
+      "Voting-Container shouldn't be shown when no image is available",
+      (widgetTester) async {
+        await setupScreen(widgetTester);
+        await widgetTester.pumpAndSettle();
+        expect(find.byKey(ValueKey("voting_container")), findsNothing);
+      },
+    );
+
+    testWidgets("Voting-Container should be shown when image is available", (
+      widgetTester,
+    ) async {
+      HttpOverrides.global = null;
+      await setupScreen(widgetTester, hasImage: true);
+      await widgetTester.pumpAndSettle(const Duration(seconds: 5));
+      expect(find.byKey(ValueKey("voting_container")), findsOneWidget);
+      await widgetTester.pumpAndSettle();
     });
   });
 }

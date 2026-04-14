@@ -10,7 +10,7 @@ class BreedDetailsController extends AsyncNotifier<Breed> {
 
   @override
   Future<Breed> build() {
-    final repo = ref.watch(breedRepositoryRemoteProvider);
+    final repo = ref.read(breedRepositoryRemoteProvider);
     return repo.getBreed(breedId);
   }
 }
