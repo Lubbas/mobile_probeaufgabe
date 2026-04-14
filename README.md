@@ -16,7 +16,7 @@ Die App basiert auf dem Feature-First-Pattern. Jedes Feature (z.B. Breed) ist in
 
 Sonstiges:
 
-- In dem Ordner `shared` befinden sich Exceptions und Services wie z.B. den `ApiClientService` für die API-Kommunikation.
+- In dem Ordner `shared` befinden sich Services wie z.B. den `ApiClientService` für die API-Kommunikation.
 - In Ordner `util` befinden sich extensions und Interceptor für die API-Kommunikation.
 - In Ordner `core/routing` befinden sich die Routen für die App
 
