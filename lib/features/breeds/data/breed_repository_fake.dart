@@ -1,6 +1,7 @@
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/weight.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/shared/exceptions/not_found_exception.dart';
 
@@ -155,4 +156,16 @@ class BreedRepositoryFake implements BreedRepository {
             ),
           )
           .toList();
+
+  @override
+  Future<bool> voteImage(Vote vote) {
+    // TODO: implement voteImage
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Vote?> getCatImageVote({required String imageId, String? subId}) {
+    // TODO: implement getCatImageVote
+    throw UnimplementedError();
+  }
 }

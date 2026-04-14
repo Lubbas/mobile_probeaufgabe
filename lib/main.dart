@@ -11,11 +11,11 @@ void main() async {
 
   runApp(
     ProviderScope(
-      overrides: [
-        breedRepositoryRemoteProvider.overrideWithValue(
-          BreedRepositoryFake(hasImage: false, hasReferenceImage: false),
-        ),
-      ],
+      // overrides: [
+      //   breedRepositoryRemoteProvider.overrideWithValue(
+      //     BreedRepositoryFake(hasImage: false, hasReferenceImage: false),
+      //   ),
+      // ],
       retry: (retryCount, error) => null,
       child: Consumer(
         builder: (context, ref, child) {

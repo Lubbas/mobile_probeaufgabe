@@ -9,6 +9,7 @@ In das Hauptverzeichnis des Projektes wird eine `.env`-Datei angelegt, welche di
 ### Vote-Funktionalität
 
 - In die Benutzeroberfläche wird ein ein neuer Bereich fürs "Voting" eingefügt (upvote / downvote).
+- Neue Modell `Vote`
 - In das Breed-Repository wird eine neue Methode hinzugefügt, welches die Image-ID, sowie das Voting als Integer erwartet.
 - Wenn später die Votes wieder geladen werden sollen, wird wahrscheinlich eine eindeutige "sub_id" benötigt.
 - Test-Fälle:

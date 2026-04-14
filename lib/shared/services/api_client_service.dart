@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed_image.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/interceptor/on_request_interceptor.dart';
 
 class ApiClientService {
@@ -36,6 +37,28 @@ class ApiClientService {
       return BreedImage.fromJson(response.data);
     } catch (e) {
       throw Exception("Could not image with id $id");
+    }
+  }
+
+  Future<bool> postCatImageVote(Vote vote) async {
+    try {
+      final response = await _dio.post("votes", data: vote.toJson());
+      return response.statusCode == 201;
+    } catch (e) {
+      throw Exception("Could not vote for image with id ${vote.imageId}");
+    }
+  }
+
+  Future<List<Vote>> getCatImageVotes({
+    required String imageId,
+    String? subId,
+  }) async {
+    try {
+      final queryParameter = {"sub_id": subId};
+      final response = await _dio.get("votes", queryParameters: queryParameter);
+      return List<Vote>.from(response.data.map((e) => Vote.fromJson(e)));
+    } catch (e) {
+      throw Exception("Could not get votes for image with id $imageId");
     }
   }
 }

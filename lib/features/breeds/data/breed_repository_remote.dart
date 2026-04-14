@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/data/breed_repository.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/breed.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/domain/vote.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/shared/services/api_client_service.dart';
 
 class BreedRepositoryRemote implements BreedRepository {
@@ -30,6 +31,30 @@ class BreedRepositoryRemote implements BreedRepository {
       }
     }
     return breedData;
+  }
+
+  @override
+  Future<bool> voteImage(Vote vote) async {
+    if (vote.value == null) {
+      throw ArgumentError('Vote must not be null');
+    }
+    if (vote.value! > 1 || vote.value! < -1) {
+      throw ArgumentError('Vote must be either 1 (upvote) or -1 (downvote)');
+    }
+
+    return await apiClient.postCatImageVote(vote);
+  }
+
+  @override
+  Future<Vote?> getCatImageVote({
+    required String imageId,
+    String? subId,
+  }) async {
+    final votes = await apiClient.getCatImageVotes(
+      imageId: imageId,
+      subId: subId,
+    );
+    return votes.where((element) => element.imageId == imageId).lastOrNull;
   }
 }
 

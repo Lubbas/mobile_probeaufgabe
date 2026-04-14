@@ -5,6 +5,7 @@ import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/c
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/breed_attribute_indicator.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/image_placeholder.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/info_container.dart';
+import 'package:mobile_probeaufgabe_lucas_schmidt/features/breeds/presentation/widgets/details/voting_container.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/extensions/context_extension.dart';
 import 'package:mobile_probeaufgabe_lucas_schmidt/util/extensions/string_extension.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -88,6 +89,8 @@ class BreedDetailScreen extends HookConsumerWidget {
                           ),
                         ],
                       ),
+                      if (data.image?.id != null)
+                        VotingContainer(imageId: data.image!.id!),
                       Text(data.description.orPlaceholder()),
                       Row(
                         children: [
