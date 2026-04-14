@@ -9,15 +9,23 @@ In das Hauptverzeichnis des Projektes wird eine `.env`-Datei angelegt, welche di
 Die App basiert auf dem Feature-First-Pattern. Jedes Feature (z.B. Breed) ist in drei Bereiche aufgeteilt:
 
 - Data-Layer: Abstraktes Repository mit Dokumentation von benötigten Methoden, sowie verschieden Implementationen. In diesem Fall `BreedRepositoryRemote` für die API und `BreedRepositoryFake` für Testzwecke.
-- Domain-Layer: Alle benötigten Modells basierend auf der API-Dokumentation.
+- Domain-Layer: Alle benötigten Modells, basierend auf der API-Dokumentation.
 - Presentation-Layer
-  - Widgets: Darstellung der Daten in einer UI
+  - Widgets: Darstellung der Daten in einer UI. `*_screen.dart` für Seiten
   - Controller: Steuer die UI-Darstellung und greift auf die Repositories zu
 
 Sonstiges:
 
 - In dem Ordner `shared` befinden sich Exceptions und Services wie z.B. den `ApiClientService` für die API-Kommunikation.
 - In Ordner `util` befinden sich extensions und Interceptor für die API-Kommunikation.
+- In Ordner `core/routing` befinden sich die Routen für die App
+
+## Implementierte Features
+
+- Liste aller Rassen mit Name, Bild und kurzer Beschreibung
+- Detail-Seite einer Rasse mit Bild, Name, Beschreibung, Herkunft, etc.
+- Voting-Funktionalität (upvote / downvote) auf der Detail-Seite
+- Bilder-Suche pro Rasse (21 Bilder aktuell)
 
 ## Aufgabe 2 - Planung
 
@@ -25,7 +33,7 @@ Sonstiges:
 
 - API-Möglichkeiten überprüfen
 - In die Benutzeroberfläche wird ein ein neuer Bereich fürs "Voting" eingefügt (upvote / downvote).
-- Neue Modell `Vote`
+- Neues Modell `Vote`
 - In das Breed-Repository wird eine neue Methode hinzugefügt, welches das Vote-Modell erwartet.
 - Wenn später die Votes wieder geladen werden sollen, wird wahrscheinlich eine eindeutige "sub_id" benötigt.
 - Test-Fälle:
@@ -78,5 +86,6 @@ Sonstiges:
 ## Was ich mit mehr Zeit noch umgesetzt hätte
 
 - Implementierung von Pagination bei der Breed-Liste und Bilder-Suche
-- Test-Fälle für Voting & Bilder-Suche implementiert
+- Weitere Test-Fälle für Voting & Bilder-Suche, etc. implementiert
 - Neuer Bottom-Navigation-Bereich mit Tab für "Favoriten"
+- Einstellbare `sub_id` für eindeutige Benutzer-Identifikation

@@ -14,17 +14,20 @@ class ImageSearchScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Bilder-Suche")),
       body: state.when(
-        data: (data) => GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
-          itemCount: data.length,
-          itemBuilder: (context, index) => Image.network(
-            data[index].url!,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => ImagePlaceholder(),
-          ),
-        ),
+        data: (data) => data.isEmpty
+            ? const Center(child: Text("Keine Bilder gefunden"))
+            : GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+                itemCount: data.length,
+                itemBuilder: (context, index) => Image.network(
+                  data[index].url!,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      ImagePlaceholder(),
+                ),
+              ),
         error: (error, stackTrace) => Center(child: Text(error.toString())),
         loading: () => Center(child: CircularProgressIndicator()),
       ),
